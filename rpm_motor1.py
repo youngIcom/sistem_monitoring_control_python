@@ -37,7 +37,7 @@ class MonitorApp:
         left_frame = tk.Frame(main_frame, bg="#f0f0f0")
         left_frame.pack(side="left", padx=10, pady=10)
 
-        self._create_input(left_frame, "Motor Kiri", 0, 255)
+        self._create_input(left_frame, "Motor DC", 0, 255)
 
         right_frame = tk.Frame(main_frame, bg="#f0f0f0")
         right_frame.pack(side="left", padx=10, pady=10)

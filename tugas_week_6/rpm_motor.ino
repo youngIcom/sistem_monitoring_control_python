@@ -4,11 +4,8 @@
 #define IN1 D5    // GPIO14
 #define IN2 D6    // GPIO12
 #define ENA D7    // GPIO13 (PWM)
-
 // Pin untuk servo
-#define SERVO_PIN 16  // D0 = GPIO16 (NB: GPIO16 tidak support PWM di Servo library)
-
-// NOTE: Lebih baik pakai pin D4 (GPIO2) atau D1/D2 (GPIO5/GPIO4) untuk Servo di ESP8266
+#define SERVO_PIN D4 // GPIO2 (D4) untuk servo
 Servo myServo;
 
 void setup() {

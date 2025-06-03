@@ -10,7 +10,7 @@ class MonitorApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Kontrol Motor & Servo")
-        self.root.geometry("500x400")
+        self.root.geometry("700x500")
         self.root.configure(bg="white")
 
         try:
@@ -35,9 +35,15 @@ class MonitorApp:
 
         self.entry_pwm, self.status_pwm = self._create_input(left_frame, "Motor DC (PWM 0-255)", self.kirim_pwm)
 
+        #Frame Kanan : Motor
+        right_frame = tk.Frame(main_frame, bg="#f0f0f0")
+        right_frame.pack(side="right", padx=10, pady=10)
+
+        self.entry_rpm, self.status_rpm = self._create_input(right_frame, "RPM Motor DC (0-255)", self.kirim_pwm)
+
         # Frame Kanan: Servo
         right_frame = tk.Frame(main_frame, bg="#f0f0f0")
-        right_frame.pack(side="left", padx=10, pady=10)
+        right_frame.pack(side="bottom", padx=10, pady=150)
 
         self.entry_servo, self.status_servo = self._create_input(right_frame, "Motor Servo (Angle 0-180)", self.kirim_servo)
 
