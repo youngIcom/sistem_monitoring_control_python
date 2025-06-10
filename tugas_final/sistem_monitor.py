@@ -21,7 +21,7 @@ class MonitorApp:
         self.status_var = tk.StringVar()
         self.status_var.set("Status: Disconnected") # Status awal
         self.status_label = tk.Label(self.root, textvariable=self.status_var,
-                                     font=("Segoe UI", 12, "bold"), fg="#0078D7", bg="#E8EEF5")
+                                     font=("Segoe UI", 12, "bold"), fg="#CC2F13", bg="#E8EEF5")
         self.status_label.pack(pady=(5, 5)) # Sesuaikan padding
 
         # Variabel untuk melacak pergerakan lingkaran di canvas
@@ -56,12 +56,12 @@ class MonitorApp:
         self.port_entry = tk.Entry(conn_frame, textvariable=self.server_port_var, font=("Segoe UI", 11), width=7)
         self.port_entry.pack(side=tk.LEFT, padx=5)
         self.connect_button = tk.Button(conn_frame, text="Connect", font=("Segoe UI", 10, "bold"), 
-                                        bg="#0078D7", fg="white", command=self.toggle_connection)
+                                        bg="#CC2F13", fg="white", command=self.toggle_connection)
         self.connect_button.pack(side=tk.LEFT, padx=5)
 
         # Judul Utama GUI
         tk.Label(self.root, text="SISTEM MONITOR", font=("Segoe UI", 18, "bold"),
-                 fg="#0078D7", bg="#E8EEF5").pack(pady=10) # Sesuaikan padding
+                 fg="#CC2F13", bg="#E8EEF5").pack(pady=10) # Sesuaikan padding
 
         # Buat frame utama untuk bagian kiri dan kanan
         main_frame = tk.Frame(self.root, bg="#E8EEF5")
@@ -168,7 +168,7 @@ class MonitorApp:
         self.sock = None
         self.is_connected = False # Ini akan menghentikan loop di data_thread
         self.status_var.set("Status: Disconnected")
-        self.connect_button.config(text="Connect", bg="#0078D7")
+        self.connect_button.config(text="Connect", bg="#CC2F13")
         print("Terputus dari ESP32.")
         # Reset tampilan sensor
         for i in range(5):
@@ -182,7 +182,7 @@ class MonitorApp:
     def create_left_side(self):
         # Frame Input Manual Motor dan Servo
         input_frame = tk.LabelFrame(self.left_frame, text="Kontrol Motor & Servo",
-                                    font=("Segoe UI", 14, "bold"), fg="#0078D7", bg="#E8EEF5", padx=15, pady=15)
+                                    font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=15, pady=15)
         input_frame.pack(fill="x")
 
         for i, label_text in enumerate(self.judul):
@@ -195,16 +195,16 @@ class MonitorApp:
 
             # Tombol OK untuk mengirim nilai
             btn = tk.Button(input_frame, text="OK", font=("Segoe UI", 11, "bold"),
-                            bg="#0078D7", fg="white", width=5,
+                            bg="#CC2F13", fg="white", width=5,
                             command=lambda e=entry, l=label_text: self.submit_manual_value(e, l))
             btn.grid(row=i, column=2, pady=8)
 
         # Frame Kontrol Arah Robot (Tombol panah dan STOP)
         control_frame = tk.LabelFrame(self.left_frame, text="Kontrol Arah",
-                                      font=("Segoe UI", 14, "bold"), fg="#0078D7", bg="#E8EEF5", padx=15, pady=15)
+                                      font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=15, pady=15)
         control_frame.pack(pady=20, fill="both", expand=True)
 
-        btn_opts = {"width": 5, "height": 2, "bg": "#0078D7", "fg": "white", "font": ("Segoe UI", 14, "bold"), "relief": "raised"}
+        btn_opts = {"width": 5, "height": 2, "bg": "#CC2F13", "fg": "white", "font": ("Segoe UI", 14, "bold"), "relief": "raised"}
 
         btn_frame = tk.Frame(control_frame, bg="#E8EEF5")
         btn_frame.pack()
@@ -219,7 +219,7 @@ class MonitorApp:
     def create_right_side(self):
         # Frame Sensor Garis (dengan 5 progress bar)
         sensor_frame = tk.LabelFrame(self.right_frame, text="Sensor Garis",
-                                     font=("Segoe UI", 14, "bold"), fg="#0078D7", bg="#E8EEF5", padx=20, pady=15)
+                                     font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=20, pady=15)
         sensor_frame.pack(fill="both", expand=True, pady=10)
 
         for i in range(5):
@@ -241,10 +241,10 @@ class MonitorApp:
 
         # Frame Canvas Tracking
         tracking_frame = tk.LabelFrame(self.right_frame, text="Tracking Navigasi",
-                                       font=("Segoe UI", 14, "bold"), fg="#0078D7", bg="#E8EEF5", padx=20, pady=15)
+                                       font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=20, pady=15)
         tracking_frame.pack(fill="both", expand=True, pady=10)
 
-        self.tracking_canvas = tk.Canvas(tracking_frame, width=200, height=200, bg="#fff", highlightthickness=1, highlightbackground="#0078D7")
+        self.tracking_canvas = tk.Canvas(tracking_frame, width=200, height=200, bg="#fff", highlightthickness=1, highlightbackground="#CC2F13")
         self.tracking_canvas.pack(pady=10)
         # Posisi awal lingkaran di tengah
         self.circle_radius = 15
@@ -253,7 +253,7 @@ class MonitorApp:
         self.tracking_circle = self.tracking_canvas.create_oval(
             self.circle_x - self.circle_radius, self.circle_y - self.circle_radius,
             self.circle_x + self.circle_radius, self.circle_y + self.circle_radius,
-            fill="#0078D7" # Lingkaran biru
+            fill="#CC2F13" # Lingkaran biru
         )
 
     def move_tracking_circle(self, dx, dy):
