@@ -329,13 +329,7 @@ class MonitorApp:
 
 
     def update_sensor_value(self, index, value_str):
-        """
-        Memperbarui progress bar dan label untuk sensor tertentu.
-
-        Args:
-            index (int): Index sensor (0-4).
-            value_str (str): Nilai yang diterima dari sensor (sebagai string).
-        """
+ 
         if not (0 <= index < len(self.sensor_labels) and index < len(self.sensor_bars)):
             print(f"Index sensor tidak valid: {index}")
             return
@@ -516,9 +510,6 @@ class MonitorApp:
         self.move_tracking_circle_continuous()
 
     def turn_left(self):
-        """
-        Mengirim perintah LEFT ke motor dan memperbarui status serta tracking GUI.
-        """
         pwm = self.get_pwm_value_from_entry()
         self.send_command_to_esp(f"M:{pwm}:L")
         self.status_var.set(f"Status: Kiri (PWM: {pwm})")
@@ -528,9 +519,6 @@ class MonitorApp:
         self.move_tracking_circle_continuous()
 
     def turn_right(self):
-        """
-        Mengirim perintah RIGHT ke motor dan memperbarui status serta tracking GUI.
-        """
         pwm = self.get_pwm_value_from_entry()
         self.send_command_to_esp(f"M:{pwm}:R")
         self.status_var.set(f"Status: Kanan (PWM: {pwm})")
@@ -540,13 +528,6 @@ class MonitorApp:
         self.move_tracking_circle_continuous()
 
     def submit_manual_value(self, entry_widget, label_text):
-        """
-        Menangani pengiriman nilai manual kecepatan motor atau sudut servo.
-
-        Args:
-            entry_widget (tk.Entry): Widget Entry tempat nilai diambil.
-            label_text (str): Label yang terkait dengan entry ("Motor Speed" atau "Servo Angle").
-        """
         val_str = entry_widget.get()
         try:
             val_int = int(val_str)
