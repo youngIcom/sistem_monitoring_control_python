@@ -21,7 +21,7 @@ class MonitorApp:
         self.status_var = tk.StringVar()
         self.status_var.set("Status: Disconnected") # Status awal
         self.status_label = tk.Label(self.root, textvariable=self.status_var,
-                                     font=("Segoe UI", 12, "bold"), fg="#CC2F13", bg="#E8EEF5")
+                                     font=("Times New Roman", 12, "bold"), fg="#CC2F13", bg="#E8EEF5")
         self.status_label.pack(pady=(5, 5)) # Sesuaikan padding
 
         # Variabel untuk melacak pergerakan lingkaran di canvas
@@ -43,24 +43,24 @@ class MonitorApp:
         # Koneksi TCP
         self.sock = None
         self.is_connected = False
-        self.server_ip_var = tk.StringVar(value="192.168.162.64") # IP default, ubah sesuai kebutuhan
+        self.server_ip_var = tk.StringVar(value="192.168.160.64") # IP default, ubah sesuai kebutuhan
         self.server_port_var = tk.StringVar(value="8080") # Port default
 
         # Frame Koneksi
         conn_frame = tk.Frame(self.root, bg="#E8EEF5")
         conn_frame.pack(pady=(0,10))
-        tk.Label(conn_frame, text="ESP32 IP:", font=("Segoe UI", 11), bg="#E8EEF5").pack(side=tk.LEFT, padx=5)
-        self.ip_entry = tk.Entry(conn_frame, textvariable=self.server_ip_var, font=("Segoe UI", 11), width=15)
+        tk.Label(conn_frame, text="ESP32 IP:", font=("Times New Roman", 11), bg="#E8EEF5").pack(side=tk.LEFT, padx=5)
+        self.ip_entry = tk.Entry(conn_frame, textvariable=self.server_ip_var, font=("Times New Roman", 11), width=15)
         self.ip_entry.pack(side=tk.LEFT, padx=5)
-        tk.Label(conn_frame, text="Port:", font=("Segoe UI", 11), bg="#E8EEF5").pack(side=tk.LEFT, padx=5)
-        self.port_entry = tk.Entry(conn_frame, textvariable=self.server_port_var, font=("Segoe UI", 11), width=7)
+        tk.Label(conn_frame, text="Port:", font=("Times New Roman", 11), bg="#E8EEF5").pack(side=tk.LEFT, padx=5)
+        self.port_entry = tk.Entry(conn_frame, textvariable=self.server_port_var, font=("Times New Roman", 11), width=7)
         self.port_entry.pack(side=tk.LEFT, padx=5)
-        self.connect_button = tk.Button(conn_frame, text="Connect", font=("Segoe UI", 10, "bold"), 
+        self.connect_button = tk.Button(conn_frame, text="Connect", font=("Times New Roman", 10, "bold"), 
                                         bg="#CC2F13", fg="white", command=self.toggle_connection)
         self.connect_button.pack(side=tk.LEFT, padx=5)
 
         # Judul Utama GUI
-        tk.Label(self.root, text="SISTEM MONITOR", font=("Segoe UI", 18, "bold"),
+        tk.Label(self.root, text="SISTEM MONITOR", font=("Times New Roman", 18, "bold"),
                  fg="#CC2F13", bg="#E8EEF5").pack(pady=10) # Sesuaikan padding
 
         # Buat frame utama untuk bagian kiri dan kanan
@@ -182,29 +182,29 @@ class MonitorApp:
     def create_left_side(self):
         # Frame Input Manual Motor dan Servo
         input_frame = tk.LabelFrame(self.left_frame, text="Kontrol Motor & Servo",
-                                    font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=15, pady=15)
+                                    font=("Times New Roman", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=15, pady=15)
         input_frame.pack(fill="x")
 
         for i, label_text in enumerate(self.judul):
-            lbl = tk.Label(input_frame, text=f"{label_text}", font=("Segoe UI", 13), bg="#E8EEF5")
+            lbl = tk.Label(input_frame, text=f"{label_text}", font=("Times New Roman", 13), bg="#E8EEF5")
             lbl.grid(row=i, column=0, sticky="w", pady=8, padx=(0,10))
 
-            entry = tk.Entry(input_frame, font=("Segoe UI", 12), width=12, relief="groove", bd=2)
+            entry = tk.Entry(input_frame, font=("Times New Roman", 12), width=12, relief="groove", bd=2)
             entry.grid(row=i, column=1, pady=8, padx=(0,10))
             self.entries.append(entry)
 
             # Tombol OK untuk mengirim nilai
-            btn = tk.Button(input_frame, text="OK", font=("Segoe UI", 11, "bold"),
+            btn = tk.Button(input_frame, text="OK", font=("Times New Roman", 11, "bold"),
                             bg="#CC2F13", fg="white", width=5,
                             command=lambda e=entry, l=label_text: self.submit_manual_value(e, l))
             btn.grid(row=i, column=2, pady=8)
 
         # Frame Kontrol Arah Robot (Tombol panah dan STOP)
         control_frame = tk.LabelFrame(self.left_frame, text="Kontrol Arah",
-                                      font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=15, pady=15)
+                                      font=("Times New Roman", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=15, pady=15)
         control_frame.pack(pady=20, fill="both", expand=True)
 
-        btn_opts = {"width": 5, "height": 2, "bg": "#CC2F13", "fg": "white", "font": ("Segoe UI", 14, "bold"), "relief": "raised"}
+        btn_opts = {"width": 5, "height": 2, "bg": "#CC2F13", "fg": "white", "font": ("Times New Roman", 14, "bold"), "relief": "raised"}
 
         btn_frame = tk.Frame(control_frame, bg="#E8EEF5")
         btn_frame.pack()
@@ -219,7 +219,7 @@ class MonitorApp:
     def create_right_side(self):
         # Frame Sensor Garis (dengan 5 progress bar)
         sensor_frame = tk.LabelFrame(self.right_frame, text="Sensor Garis",
-                                     font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=20, pady=15)
+                                     font=("Times New Roman", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=20, pady=15)
         sensor_frame.pack(fill="both", expand=True, pady=10)
 
         for i in range(5):
@@ -227,7 +227,7 @@ class MonitorApp:
             row_frame.pack(fill="x", pady=6, padx=10)
 
             sensor_label = tk.Label(row_frame, text=f"Sensor {i+1}: -",
-                                    font=("Segoe UI", 13), fg="#333", bg="#E8EEF5", anchor="w", width=15)
+                                    font=("Times New Roman", 13), fg="#333", bg="#E8EEF5", anchor="w", width=15)
             sensor_label.pack(side="left")
             self.sensor_labels.append(sensor_label)
 
@@ -241,41 +241,45 @@ class MonitorApp:
 
         # Frame Canvas Tracking
         tracking_frame = tk.LabelFrame(self.right_frame, text="Tracking Navigasi",
-                                       font=("Segoe UI", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=20, pady=15)
+                                       font=("Times New Roman", 14, "bold"), fg="#CC2F13", bg="#E8EEF5", padx=20, pady=15)
         tracking_frame.pack(fill="both", expand=True, pady=10)
 
         self.tracking_canvas = tk.Canvas(tracking_frame, width=200, height=200, bg="#fff", highlightthickness=1, highlightbackground="#CC2F13")
         self.tracking_canvas.pack(pady=10)
+
         # Posisi awal lingkaran di tengah
-        self.circle_radius = 15
-        self.circle_x = 100
+        self.circle_radius = 10 #jari jari lingkaran
+        self.circle_x = 100 #
         self.circle_y = 100
         self.tracking_circle = self.tracking_canvas.create_oval(
             self.circle_x - self.circle_radius, self.circle_y - self.circle_radius,
             self.circle_x + self.circle_radius, self.circle_y + self.circle_radius,
-            fill="#CC2F13" # Lingkaran biru
+            fill="#CC2F13", outline="#1354CC"
         )
 
     def move_tracking_circle(self, dx, dy):
         # Hitung posisi baru
-        new_x = self.circle_x + dx
-        new_y = self.circle_y + dy
-        # Batas canvas
-        min_pos = self.circle_radius
-        max_pos_x = self.tracking_canvas.winfo_width() - self.circle_radius
-        max_pos_y = self.tracking_canvas.winfo_height() - self.circle_radius
+        new_x = self.circle_x + dx #posisi baru di x= posisi lama + perubahan posisi
+        new_y = self.circle_y + dy #posisi baru di y= posisi lama + perubahan posisi
+
+        # Batas canvas / batas aman
+        min_pos = self.circle_radius #batas minimum = jari jari lingkaran
+        max_pos_x = self.tracking_canvas.winfo_width() - 10 #self.circle_radius # batas maksimum x = lebar canvas - jari jari lingkaran
+        max_pos_y = self.tracking_canvas.winfo_height() - 10 #self.circle_radius # batas maksimum y = tinggi canvas - jari jari lingkaran
         
-        if max_pos_x < min_pos : max_pos_x = 200 - self.circle_radius # Fallback jika winfo_width belum siap
-        if max_pos_y < min_pos : max_pos_y = 200 - self.circle_radius # Fallback jika winfo_height belum siap
+        if max_pos_x < min_pos : max_pos_x = 200 - self.circle_radius # Fallback jika winfo_width belum siap untuk memastikan bahwa ukuran kanvas sesuai dengan yang sudah ditentukan
+        if max_pos_y < min_pos : max_pos_y = 200 - self.circle_radius # sama
 
         # Pastikan lingkaran tetap dalam batas canvas
+        #menggunakan clamping method
         self.circle_x = max(min_pos, min(new_x, max_pos_x))
         self.circle_y = max(min_pos, min(new_y, max_pos_y))
+
         # Update koordinat lingkaran
         self.tracking_canvas.coords(
             self.tracking_circle,
-            self.circle_x - self.circle_radius, self.circle_y - self.circle_radius,
-            self.circle_x + self.circle_radius, self.circle_y + self.circle_radius
+            self.circle_x - self.circle_radius, self.circle_y - self.circle_radius, #
+            self.circle_x + self.circle_radius, self.circle_y + self.circle_radius  #
         )
 
     def move_tracking_circle_continuous(self):
