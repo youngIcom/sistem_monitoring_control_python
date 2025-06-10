@@ -9,7 +9,7 @@ class MonitorApp:
         self.root = root
         self.root.title("Sistem Monitor (TCP/IP)")
         # Sedikit menambah tinggi window untuk input IP
-        self.root.geometry("900x520") 
+        self.root.geometry("900x700") 
         self.root.configure(bg="#E8EEF5") # Atur warna background window utama
 
         self.judul = ["Motor Speed", "Servo Angle"]
